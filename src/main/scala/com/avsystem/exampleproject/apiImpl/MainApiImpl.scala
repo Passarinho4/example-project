@@ -6,9 +6,11 @@ import com.avsystem.exampleproject.api.user.UserApi
 import com.avsystem.exampleproject.apiImpl.user.UserApiImpl
 import com.avsystem.exampleproject.backend.token.TokenService
 import com.avsystem.exampleproject.backend.user.UserService
+import io.udash.rest.GET
 import monix.eval.Task
 
 class MainApiImpl(daosWrapper: DaosWrapper, tokenService: TokenService) extends MainApi {
+
 
   override def healthCheck: Task[String] = Task.now("ok")
 
