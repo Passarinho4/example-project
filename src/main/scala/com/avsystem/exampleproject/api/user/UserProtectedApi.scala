@@ -1,11 +1,11 @@
-package com.avsystem.exampleproject.api.user
+package com.avsystem.exampleproject.api.device
 
 import com.avsystem.exampleproject.api.monixUtils.MonixRestApiCompanion
 import monix.eval.Task
 
-trait UserProtectedApi {
+trait DeviceProtectedApi {
 
   def test(): Task[String]
 
 }
-object UserProtectedApi extends MonixRestApiCompanion[UserProtectedApi]
+object DeviceProtectedApi extends MonixRestApiCompanion[DeviceProtectedApi]

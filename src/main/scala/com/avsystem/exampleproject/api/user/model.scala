@@ -1,9 +1,9 @@
-package com.avsystem.exampleproject.api.user
+package com.avsystem.exampleproject.api.device
 
 import com.avsystem.commons.misc.Timestamp
-import com.avsystem.exampleproject.backend.activity.UserActivity
+import com.avsystem.exampleproject.backend.activity.DeviceActivity
 import io.udash.rest.RestDataCompanion
 
-case class UserActivityLogDto(user: String, activity: UserActivity, time: Timestamp)
-object UserActivityLogDto extends RestDataCompanion[UserActivityLogDto]
+case class DeviceActivityLogDto(device: String, activity: DeviceActivity, time: Timestamp)
+object DeviceActivityLogDto extends RestDataCompanion[DeviceActivityLogDto]
 

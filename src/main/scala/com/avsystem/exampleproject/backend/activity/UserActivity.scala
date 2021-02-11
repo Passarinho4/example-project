@@ -3,13 +3,13 @@ package com.avsystem.exampleproject.backend.activity
 import com.avsystem.commons.ISeq
 import com.avsystem.commons.misc.{AutoNamedEnum, NamedEnumCompanion}
 
-sealed trait UserActivity extends AutoNamedEnum {
+sealed trait DeviceActivity extends AutoNamedEnum {
   def name: String
 }
 
-object UserActivity extends NamedEnumCompanion[UserActivity] {
-  case object Login extends UserActivity
-  case object Logout extends UserActivity
+object DeviceActivity extends NamedEnumCompanion[DeviceActivity] {
+  case object Login extends DeviceActivity
+  case object Logout extends DeviceActivity
 
-  override val values: ISeq[UserActivity] = caseObjects
+  override val values: ISeq[DeviceActivity] = caseObjects
 }

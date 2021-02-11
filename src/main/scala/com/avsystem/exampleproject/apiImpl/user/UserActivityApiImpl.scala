@@ -1,22 +1,22 @@
-package com.avsystem.exampleproject.apiImpl.user
+package com.avsystem.exampleproject.apiImpl.device
 
 import com.avsystem.commons.misc.Timestamp
 import com.avsystem.commons.serialization.json.JsonStringOutput
-import com.avsystem.exampleproject.api.user.{UserActivityApi, UserActivityLogDto}
-import com.avsystem.exampleproject.backend.activity.{UserActivity, UserActivityLog, UserActivityService}
+import com.avsystem.exampleproject.api.device.{DeviceActivityApi, DeviceActivityLogDto}
+import com.avsystem.exampleproject.backend.activity.{DeviceActivity, DeviceActivityLog, DeviceActivityService}
 import monix.eval.Task
 
-class UserActivityApiImpl(userService: UserActivityService) extends UserActivityApi {
-  override def logActivity(user: String, activity: UserActivity, timestamp: Timestamp): Task[Unit] = {
-    userService.logActivity(user, activity, timestamp)
+class DeviceActivityApiImpl(deviceService: DeviceActivityService) extends DeviceActivityApi {
+  override def logActivity(device: String, activity: DeviceActivity, timestamp: Timestamp): Task[Unit] = {
+    deviceService.logActivity(device, activity, timestamp)
   }
 
-  override def getUserActivities(user: String): Task[List[UserActivityLogDto]] = {
-    userService.getUserActivities(user).map(_.map(_.toDto))
+  override def getDeviceActivities(device: String): Task[List[DeviceActivityLogDto]] = {
+    deviceService.getDeviceActivities(device).map(_.map(_.toDto))
   }
 
-  override def purge(): Task[Unit] = userService.removeAll()
+  override def purge(): Task[Unit] = deviceService.removeAll()
 
   // TODO
-  override def uniqueActivities(user: String, from: Timestamp, to: Timestamp): Task[Long] = ???
+  override def uniqueActivities(device: String, from: Timestamp, to: Timestamp): Task[Long] = ???
 }

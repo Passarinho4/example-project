@@ -4,12 +4,12 @@ import com.avsystem.commons.mongo.typed.{MongoFilter, TypedMongoCollection}
 import com.avsystem.exampleproject.backend.utils.DaoUtils
 import monix.eval.Task
 
-class UserActivityDao(collection: TypedMongoCollection[UserActivityLog]) extends DaoUtils {
+class DeviceActivityDao(collection: TypedMongoCollection[DeviceActivityLog]) extends DaoUtils {
 
-  def insert(user: UserActivityLog): Task[Unit] = collection.insertOne(user).unit()
+  def insert(device: DeviceActivityLog): Task[Unit] = collection.insertOne(device).unit()
 
-  def findBy(user: String): Task[List[UserActivityLog]] = collection.find(
-    UserActivityLog.ref(_.user) === user
+  def findBy(device: String): Task[List[DeviceActivityLog]] = collection.find(
+    DeviceActivityLog.ref(_.device) === device
   ).toListL
 
   def isEmpty: Task[Boolean] = collection.find().isEmptyL

@@ -1,8 +1,8 @@
-package com.avsystem.exampleproject.apiImpl.user
+package com.avsystem.exampleproject.apiImpl.device
 
-import com.avsystem.exampleproject.api.user.UserProtectedApi
+import com.avsystem.exampleproject.api.device.DeviceProtectedApi
 import monix.eval.Task
 
-class UserProtectedApiImpl() extends UserProtectedApi {
+class DeviceProtectedApiImpl() extends DeviceProtectedApi {
   override def test(): Task[String] = Task.now("protected string ")
 }

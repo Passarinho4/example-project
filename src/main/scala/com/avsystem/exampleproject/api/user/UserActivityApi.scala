@@ -1,24 +1,24 @@
-package com.avsystem.exampleproject.api.user
+package com.avsystem.exampleproject.api.device
 
 import com.avsystem.commons.misc.Timestamp
 import com.avsystem.exampleproject.api.monixUtils.MonixRestApiCompanion
-import com.avsystem.exampleproject.backend.activity.UserActivity
+import com.avsystem.exampleproject.backend.activity.DeviceActivity
 import io.udash.rest.{GET, POST, Path}
 import monix.eval.Task
 
-trait UserActivityApi {
+trait DeviceActivityApi {
 
   @POST(path = "purge")
   def purge(): Task[Unit]
 
   @GET(path = "")
-  def getUserActivities(@Path user: String): Task[List[UserActivityLogDto]]
+  def getDeviceActivities(@Path device: String): Task[List[DeviceActivityLogDto]]
 
   @POST(path = "")
-  def logActivity(user: String, activity: UserActivity, timestamp: Timestamp): Task[Unit]
+  def logActivity(device: String, activity: DeviceActivity, timestamp: Timestamp): Task[Unit]
 
   @POST("uniqueCount")
-  def uniqueActivities(user: String, from: Timestamp, to: Timestamp): Task[Long]
+  def uniqueActivities(device: String, from: Timestamp, to: Timestamp): Task[Long]
 }
 
-object UserActivityApi extends MonixRestApiCompanion[UserActivityApi]
+object DeviceActivityApi extends MonixRestApiCompanion[DeviceActivityApi]
