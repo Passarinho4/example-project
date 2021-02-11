@@ -1,5 +1,7 @@
 package com.avsystem.exampleproject
 
+import java.util.Calendar
+
 import com.avsystem.commons.misc.Timestamp
 import com.avsystem.exampleproject.api.MainApi
 import com.avsystem.exampleproject.backend.activity.DeviceActivity
@@ -7,9 +9,8 @@ import io.udash.rest.SttpRestClient
 import monix.eval.Task
 import sttp.client.SttpBackend
 
-import java.util.{Calendar, Date}
-import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.{Duration, DurationInt}
+import scala.concurrent.{Await, Future}
 
 
 object TestDataPublisher extends App {

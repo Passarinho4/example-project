@@ -1,9 +1,8 @@
 package com.avsystem.exampleproject.apiImpl.device
 
 import com.avsystem.commons.misc.Timestamp
-import com.avsystem.commons.serialization.json.JsonStringOutput
 import com.avsystem.exampleproject.api.device.{DeviceActivityApi, DeviceActivityLogDto}
-import com.avsystem.exampleproject.backend.activity.{DeviceActivity, DeviceActivityLog, DeviceActivityService}
+import com.avsystem.exampleproject.backend.activity.{DeviceActivity, DeviceActivityService}
 import monix.eval.Task
 
 class DeviceActivityApiImpl(deviceService: DeviceActivityService) extends DeviceActivityApi {
