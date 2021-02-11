@@ -8,8 +8,8 @@ sealed trait UserActivity extends AutoNamedEnum {
 }
 
 object UserActivity extends NamedEnumCompanion[UserActivity] {
-  case object Login
-  case object Logout
+  case object Login extends UserActivity
+  case object Logout extends UserActivity
 
   override val values: ISeq[UserActivity] = caseObjects
 }

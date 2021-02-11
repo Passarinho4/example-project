@@ -1,16 +1,16 @@
 package com.avsystem.exampleproject
 
 import com.avsystem.commons.mongo.typed.TypedMongoCollection
-import com.avsystem.exampleproject.backend.activity.{UserActivityLog, UserActivityDao}
+import com.avsystem.exampleproject.backend.activity.{UserActivityDao, UserActivityLog}
+import com.avsystem.exampleproject.db.MongoClientProvider
 import com.mongodb.reactivestreams.client.{MongoClient, MongoClients}
 
 
-case class DaosWrapper(userActivityDao: UserActivityDao)
+class DaosWrapper(clientProvider: MongoClientProvider) {
 
-object DaosWrapper {
-  val client: MongoClient = MongoClients.create()
+  val client: MongoClient = clientProvider.getMongoClient
 
-  val daosWrapper: DaosWrapper = new DaosWrapper(
-    new UserActivityDao(new TypedMongoCollection[UserActivityLog](client.getDatabase("example").getCollection("user"))),
-  )
+  val userActivityDao = new UserActivityDao(new TypedMongoCollection[UserActivityLog](
+    client.getDatabase("example").getCollection("user")))
+
 }

@@ -9,7 +9,6 @@ import monix.eval.Task
 
 class MainApiImpl(daosWrapper: DaosWrapper) extends MainApi {
 
-
   override def healthCheck: Task[String] = Task.now("ok")
 
   override def userApi: UserActivityApi = new UserActivityApiImpl(
