@@ -18,7 +18,7 @@ trait DeviceActivityApi {
   def logActivity(device: String, activity: DeviceActivity, timestamp: Timestamp): Task[Unit]
 
   @POST("uniqueCount")
-  def uniqueActivities(device: String, from: Timestamp, to: Timestamp): Task[Long]
+  def uniqueActivities(from: Timestamp, to: Timestamp): Task[Long]
 }
 
 object DeviceActivityApi extends MonixRestApiCompanion[DeviceActivityApi]

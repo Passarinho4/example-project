@@ -3,6 +3,7 @@ package com.avsystem.exampleproject.apiImpl.device
 import com.avsystem.commons.misc.Timestamp
 import com.avsystem.exampleproject.api.device.{DeviceActivityApi, DeviceActivityLogDto}
 import com.avsystem.exampleproject.backend.activity.{DeviceActivity, DeviceActivityService}
+import com.yahoo.sketches.hll.HllSketch
 import monix.eval.Task
 
 class DeviceActivityApiImpl(deviceService: DeviceActivityService) extends DeviceActivityApi {
@@ -17,5 +18,5 @@ class DeviceActivityApiImpl(deviceService: DeviceActivityService) extends Device
   override def purge(): Task[Unit] = deviceService.removeAll()
 
   // TODO
-  override def uniqueActivities(device: String, from: Timestamp, to: Timestamp): Task[Long] = ???
+  override def uniqueActivities(from: Timestamp, to: Timestamp): Task[Long] = ???
 }
