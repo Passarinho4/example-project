@@ -29,7 +29,7 @@ object TestDataPublisher extends App {
 
   val generateTasks = (0 until count).map { i =>
     println(i)
-    apiClient.deviceApi.logActivity(devices.next(), DeviceActivity.Login, fromTimestamp + i.minutes)
+    apiClient.deviceApi.logActivity(devices.next(), DeviceActivity.Register, fromTimestamp + i.minutes)
   }
 
   val allTask = for {

@@ -8,8 +8,8 @@ sealed trait DeviceActivity extends AutoNamedEnum {
 }
 
 object DeviceActivity extends NamedEnumCompanion[DeviceActivity] {
-  case object Login extends DeviceActivity
-  case object Logout extends DeviceActivity
+  case object Register extends DeviceActivity
+  case object Telemetry extends DeviceActivity
 
   override val values: ISeq[DeviceActivity] = caseObjects
 }
